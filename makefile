@@ -1,12 +1,12 @@
 CC=g++-8
 
 INSTALL_DIR = ../bin
-INCLUDE_DIR = -I. -I../cpr/include/ -I../json/include/ -I../spdlog/include/
+INCLUDE_DIR = -I. -Iinclude/ -I../dexplex/include -I../cpr/include/ -I../json/include/ -I../spdlog/include/
 
 
-EXE      = dex-tui
-SOURCE   = src/main.cpp 
-LINKLIBS = -L../cpr/lib/ -L/usr/lib/libdaemon/ -lspdlog -lcpr -lcurl -lmut -lstdc++fs -lboost_date_time -lrestbed -lpthread 
+EXE      = dex-cli
+SOURCE   = src/main.cpp src/dexcom.cpp src/bg_cache.cpp
+LINKLIBS = -L../cpr/lib/ -L/usr/lib/libdaemon/ -lspdlog -lcpr -lcurl -lmut -lstdc++fs -lboost_date_time -lpthread 
 
 OBJS     = $(SOURCE:.cpp=.o) 
 DEPS     = $(SOURCE:.cpp=.d) 
